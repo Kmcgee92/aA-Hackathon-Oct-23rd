@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<style type="text/css">
+    .timer {
+    margin: 0px auto;
+    margin-bottom: 20px;
+    padding: 60px;
+    height: 100px;
+    width: 250px;
+    border-radius: 20px;
+    opacity: 0.8;
+    color: white;
+    font-size: 20px;
+    padding-top: 20px;
+    }
+    .form {
+    margin: 0 auto;
+    padding: 60px;
+    height: 100px;
+    width: 400px;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 0.9;
+    color: black;
+    font-size: 20px;
+    }
+    html {
+        background-image: url('/static/city-race.gif');
+    }
+    .title {
+        padding-bottom: 20px;
+        font-size: 30px;
+    }
+
+</style>
+{% if not whowon and timer %}
+<meta http-equiv="refresh" content=".001">
+{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥RACEDAY🔥</title>
+</head>
+<body>
+    <div class="timer">
+        <h3>ARE YOU READY?</h3>
+        {% if whowon or timer %}
+            <h1>
+                {{whowon}}
+            </h1>
+            <h1>
+                {{timer}}
+            </h1>
+        {% endif %}
+    </div>
+    <div class="form">
+        <div class='title'>
+            Welcome to the Races!
+        </div>
+        {% if form %}
+        <form method="Post" action="/fillin">
+
+            {{ form.csrf_token }}
+            <div>
+                {{form.min.label}}{{form.min}}
+
+            </div>
+            {{form.sec.label}}{{form.sec}}
+            {{form.submit}}
+        </form>
+        {% endif %}
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+FLASK_APP=hackathon.py
+FLASK_ENV=development
+SECRET_KEY=12445

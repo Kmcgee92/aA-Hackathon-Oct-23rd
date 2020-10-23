@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<style type="text/css">
+    .timer {
+        margin: 0px auto;
+        margin-bottom: 20px;
+        padding: 60px;
+        height: 100px;
+        width: 100px;
+        background-color: white;
+        border-radius: 20px;
+        opacity: 0.5;
+        color: black;
+        font-size: 20px;
+        padding-top: 20px;
+    }
+
+    .fire {
+        margin: 0 auto;
+        position: absolute;
+        left: 690px;
+        top: 90px;
+        width: 220px;
+        border-radius: 40px;
+        z-index: 0;
+    }
+    .backbutton {
+        width: 100px;
+        color: red;
+        border-radius: 20px;
+        height: 30px;
+    }
+
+    html {
+        background-image: url('/static/city-race.gif');
+    }
+    .winner {
+        background-color: transparent;
+        color: white;
+    }
+</style>
+{% if not whowon %}
+<meta http-equiv="refresh" content=".01">
+{% endif %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥RACEDAY🔥</title>
+</head>
+
+<body>
+    {% if whowon %}
+    <img class='fire' src="../static/fire.gif">
+    {% endif %}
+    <div class="timer">
+        <h1 >
+            {{whowon}}
+        </h1>
+        <h1>
+            {{timer}}
+        </h1>
+        {% if whowon %}
+            <a href="/">
+                <button class="backbutton">Back</button>
+            </a>
+        {% endif %}
+    </div>
+
+
+
+</body>
+
+</html>
